@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'NewGas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'oUNWjORJf5RcM4gUipD2',
-        'HOST': 'containers-us-west-146.railway.app',
-        'PORT': '5990',
+        'USER': 'postgres',
+        'PASSWORD': 'y65JtQgN0kt8j7h7i9cl',
+        'HOST': 'containers-us-west-150.railway.app',
+        'PORT': '6591',
     }
 }
 
