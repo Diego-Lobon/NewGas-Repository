@@ -1,0 +1,1 @@
+web: gunicorn NewGas.wsgi --log-file -
