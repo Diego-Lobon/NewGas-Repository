@@ -63,4 +63,12 @@ class mensajeContactoForm(ModelForm):
             )
         }
 
+
+class UserRegisterForm(UserCreationForm):
+    
+    class Meta:
+
+        model = User
+        fields = ['username', 'last_name', 'email', 'password1', 'password2']
+        
     

@@ -250,11 +250,11 @@ class IniciarSesionPageView(FormView):
 class RegistrarsePageView(CreateView):
     template_name = 'registrarse.html'
     model = User
-    form_class = UserCreationForm
+    form_class = UserRegisterForm
 
     def post(self, request):
         
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
 
         if form.is_valid():
             form.save() 
@@ -262,6 +262,7 @@ class RegistrarsePageView(CreateView):
         else:
             
             print("NO REGISTRADO")
+            return redirect('registrarse')
     
     
 
