@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", 'web-production-d84b.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-d84b.up.railway.app'
+]
+
 
 # Application definition
 
@@ -132,3 +136,12 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# STRIPE public key
+
+STRIPE_PUBLIC_KEY = 'pk_test_51M9zhKLwXUgqlvGhlWXfLylW92K0qcaQ9LfHMPdzx6BrFMTy6ZLfB8gIu4Mc2gZBBEFebF5VhBLoAvYtfv0HncRs00TRsZn81y'
+
+# STRIPE private key
+
+STRIPE_PRIVATE_KEY = 'sk_test_51M9zhKLwXUgqlvGhGuDyJ9CEoxoDVSnKVsFs2MrtLo7YSVjvG1jRttKHOmszK1sd1i0Ux1QMChlC1OFfNXJpeP9D00uLd43QNQ'
+    

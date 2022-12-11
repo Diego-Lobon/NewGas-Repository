@@ -109,6 +109,9 @@ class ContactenosPageView(CreateView):
 
     def post(self, request):
 
+        nombre_usuario = request.session['user']
+        idUsuario = User.objects.get(username = nombre_usuario).pk
+
         nombre = request.POST['nombre']
         apellido = request.POST['apellido']
         correoElectronico = request.POST['correoElectronico']
@@ -125,6 +128,7 @@ class ContactenosPageView(CreateView):
                 celular = celular,
                 dni = dni,
                 consulta = consulta,
+                usuario_id = idUsuario,
             )
 
         return redirect('index')
@@ -210,6 +214,11 @@ class IniciarSesionPageView(FormView):
             ip, public_or_private = get_client_ip(request)
             nombre_usuario = form.cleaned_data.get("username")
 
+            nombre_usuario_s = request.session['user']
+            idUsuario = User.objects.filter(username = nombre_usuario_s).values()
+
+            for i in idUsuario:
+                print("tipo: ",i)
 
             if str(nombre_usuario) != str(ip):
 
@@ -221,8 +230,10 @@ class IniciarSesionPageView(FormView):
                     print("INICIO")
                     request.session['user'] = nombre_usuario
                     return redirect("crear")
+
                 else:
-                    print("datos no correctos")   
+                    print("datos no correctos") 
+                    return redirect("iniciarSesion")   
                     
             else:
                 
@@ -232,6 +243,7 @@ class IniciarSesionPageView(FormView):
             #print("error")
             #print(form.errors.as_data())
             print("error")
+            return redirect("iniciarSesion") 
     
 
 

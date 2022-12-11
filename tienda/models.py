@@ -11,6 +11,7 @@ class mensajeContacto(models.Model):
     celular = models.BigIntegerField()
     consulta= models.CharField(max_length=500)
     fecha = models.DateTimeField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class productos(models.Model):
     nombre = models.CharField(max_length=255)
